@@ -1,0 +1,34 @@
+server:
+  port: 8001
+
+spring:
+  redis:
+    # redis库
+#    database: 0
+    # redis 服务器地址
+#    host: 10.35.22.130
+    # redis 端口号
+#    port: 6379
+    # redis 密码
+    password: 123456
+    # 连接超时时间（毫秒）
+    timeout: 1000
+    jedis:
+      pool:
+        max-active: 10
+        max-wait: 5
+        max-idle: 5
+        min-idle: 0
+    sentinel:
+      nodes: 10.35.22.128:26379,10.35.22.129:26379,10.35.22.130:26379
+      master: mymaster
+#    lettuce:
+#      pool:
+#        # 连接池最大链接数（负数表示没有限制）
+#        max-active: 8
+#        # 连接池最大阻塞等待时间（负数表示没有限制）
+#        max-wait: -1
+#        # 连接池最大空闲连接数
+#        max-idle: 8
+#        # 连接池最小空闲连接数
+#        min-idle: 0
