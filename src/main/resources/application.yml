@@ -1,5 +1,9 @@
 server:
-  port: 8001
+  port: 8002
+
+person:
+  name: zhangsan
+  age: 10
 
 spring:
   redis:

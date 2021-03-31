@@ -2,6 +2,7 @@ package com.stephen.simple;
 
 import com.google.gson.Gson;
 import com.stephen.simple.entity.User;
+import org.apache.commons.lang3.time.DateUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +13,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import redis.clients.jedis.JedisPool;
 
-import javax.annotation.Resource;
+import java.util.Date;
 
 /**
  * Created by ssc on 2020-11-13 0:30 .
@@ -26,10 +26,22 @@ import javax.annotation.Resource;
 public class MockTest {
     @Autowired
     private RedisTemplate redisTemplate;
-    @Resource
-    private JedisPool jedisPool;
+    // @Resource
+    // private JedisPool jedisPool;
     @Autowired
     private MockMvc mockMvc;
+
+    @Test
+    public void dateTest() {
+        System.out.println("new Date() = " + new Date());
+        System.out.println("DateUtils.addYears(new Date(), 2) = " + DateUtils.addYears(new Date(), 2));
+        System.out.println("DateUtils.addMonths(new Date(), 2) = " + DateUtils.addMonths(new Date(), 2));
+        System.out.println("DateUtils.addDays(new Date(), 2) = " + DateUtils.addDays(new Date(), 2));
+        System.out.println("DateUtils.addHours(new Date(),2) = " + DateUtils.addHours(new Date(), 2));
+        System.out.println("DateUtils.addMinutes(new Date(),2) = " + DateUtils.addMinutes(new Date(), 2));
+        System.out.println("DateUtils.addSeconds(new Date(),2) = " + DateUtils.addSeconds(new Date(), 2));
+        System.out.println("DateUtils.addWeeks(new Date(),2) = " + DateUtils.addWeeks(new Date(), 2));
+    }
 
     /**
      * 点赞功能,并且3秒内不能重复操作
